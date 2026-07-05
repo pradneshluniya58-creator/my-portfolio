@@ -4,7 +4,7 @@ const PortfolioData = {
     fullName: "Pradnesh Santosh Luniya",
     college: "AISSMS College of Engineering, Pune",
     birthDate: "March 23, 2008",
-    status: "Completed First Year (Second Year starts July 6, 2026)",
+    status: "2nd Year",
     linkedin: "https://www.linkedin.com/in/pradnesh-luniya-233239384/",
     github: "https://github.com/pradneshluniya58-creator"
   },
@@ -209,10 +209,6 @@ function createSkillCardMarkup(skill) {
           <span class="skill-icon">${skill.icon}</span>
           <span class="skill-name">${skill.name}</span>
         </div>
-        <span class="skill-pct">${skill.level}%</span>
-      </div>
-      <div class="skill-bar-bg">
-        <div class="skill-bar-fill" data-pct="${skill.level}"></div>
       </div>
       <p class="skill-details-text">${skill.details}</p>
     </div>
