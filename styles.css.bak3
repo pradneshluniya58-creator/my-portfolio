@@ -1082,15 +1082,26 @@ footer {
 
 
 
-
 /* Extra Mobile Improvements */
 @media (max-width: 480px) {
-  * {
-    max-width: 100%;
+  .blob {
+    width: 300px;
+    height: 300px;
   }
   
-  .blob {
-    display: none;
+  .blob-1 {
+    top: -50px;
+    right: -150px;
+  }
+  
+  .blob-2 {
+    bottom: 20%;
+    left: -150px;
+  }
+  
+  .blob-3 {
+    bottom: -50px;
+    right: -150px;
   }
   
   .nav-container {
@@ -1105,14 +1116,8 @@ footer {
     font-size: 2rem;
   }
   
-  .profile-glow-ring {
-    width: 150px;
-    height: 150px;
-  }
-  
   .container {
     padding: 0 0.75rem;
-    max-width: 100%;
   }
   
   .section-title {
@@ -1125,27 +1130,6 @@ footer {
   
   .project-content {
     padding: 1rem;
-  }
-  
-  .contact-info,
-  .contact-form {
-    min-width: 0;
-    overflow-wrap: break-word;
-  }
-  
-  .contact-info h3 {
-    font-size: 1.5rem;
-  }
-  
-  .contact-info p,
-  .contact-info h3 {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-  }
-  
-  .contact-details {
-    gap: 1rem;
   }
   
   .modal-container {

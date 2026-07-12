@@ -8,13 +8,12 @@ const PortfolioData = {
     linkedin: "https://www.linkedin.com/in/pradnesh-luniya-233239384/",
     github: "https://github.com/pradneshluniya58-creator"
   },
-  
+
   skills: [
     {
       id: "cpp-dsa",
       name: "C++ (DSA)",
       category: "Programming & Core",
-      level: 85,
       details: "Data Structures & Algorithms, OOP principles, and competitive programming foundations.",
       featured: true,
       icon: "⚡"
@@ -23,7 +22,6 @@ const PortfolioData = {
       id: "python",
       name: "Python",
       category: "Programming & Core",
-      level: 80,
       details: "Automation scripting, data analysis foundations, and backend operations.",
       featured: true,
       icon: "🐍"
@@ -32,7 +30,6 @@ const PortfolioData = {
       id: "c-lang",
       name: "C Programming",
       category: "Programming & Core",
-      level: 75,
       details: "Low-level structures, memory management, and fundamental computer science paradigms.",
       featured: true,
       icon: "💻"
@@ -41,7 +38,6 @@ const PortfolioData = {
       id: "js",
       name: "JavaScript",
       category: "Web Development",
-      level: 70,
       details: "DOM manipulation, asynchronous operations, event handling, and interactive dynamic components.",
       featured: false,
       icon: "🌐"
@@ -50,7 +46,6 @@ const PortfolioData = {
       id: "html-css",
       name: "HTML5 & CSS3",
       category: "Web Development",
-      level: 90,
       details: "Semantic layouts, responsive flexbox/grid structures, and keyframe-based micro-animations.",
       featured: false,
       icon: "🎨"
@@ -59,7 +54,6 @@ const PortfolioData = {
       id: "sql",
       name: "SQL",
       category: "Databases",
-      level: 75,
       details: "Relational database querying, normalization, schema design, and transaction management.",
       featured: false,
       icon: "📊"
@@ -101,7 +95,7 @@ const PortfolioData = {
 document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initContactForm();
-  
+
   // Render functions based on which page is active
   if (document.getElementById("projects-featured-container")) {
     renderFeaturedProjects();
@@ -128,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function initMobileMenu() {
   const menuBtn = document.querySelector(".mobile-menu-btn");
   const navLinks = document.querySelector(".nav-links");
-  
+
   if (menuBtn && navLinks) {
     menuBtn.addEventListener("click", () => {
       navLinks.classList.toggle("show");
@@ -141,7 +135,7 @@ function initMobileMenu() {
 function renderFeaturedProjects() {
   const container = document.getElementById("projects-featured-container");
   const featured = PortfolioData.projects.filter(p => p.featured);
-  
+
   container.innerHTML = featured.map(p => createProjectCardMarkup(p)).join("");
 }
 
@@ -155,7 +149,7 @@ function renderAllProjects() {
 function renderFeaturedSkills() {
   const container = document.getElementById("skills-featured-container");
   const featured = PortfolioData.skills.filter(s => s.featured);
-  
+
   container.innerHTML = featured.map(s => createSkillCardMarkup(s)).join("");
 }
 
@@ -182,7 +176,7 @@ function renderExperienceTimeline() {
 // Project Card Template
 function createProjectCardMarkup(project) {
   const techBadges = project.tech.map(t => `<span class="project-tech-badge">${t}</span>`).join("");
-  
+
   return `
     <div class="project-card" data-id="${project.id}">
       <div class="project-img-wrapper">
@@ -240,7 +234,7 @@ function initModals() {
   if (!overlay) return;
 
   const closeBtn = overlay.querySelector(".modal-close-btn");
-  
+
   // Card click triggers modal opening
   document.addEventListener("click", (e) => {
     const card = e.target.closest(".project-card");
@@ -272,7 +266,7 @@ function initModals() {
     overlay.querySelector(".modal-subtitle").innerText = project.subtitle;
     overlay.querySelector(".modal-title").innerText = project.title;
     overlay.querySelector(".modal-desc").innerText = project.longDescription;
-    
+
     const featuresList = overlay.querySelector(".modal-features-list");
     featuresList.innerHTML = project.features.map(f => `
       <li class="modal-feature-item">${f}</li>
@@ -280,7 +274,7 @@ function initModals() {
 
     const githubBtn = overlay.querySelector(".github-repo-btn");
     const demoBtn = overlay.querySelector(".live-demo-btn");
-    
+
     githubBtn.href = project.github;
     demoBtn.href = project.demo;
 
@@ -301,7 +295,7 @@ function initContactForm() {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    
+
     // Extract input fields
     const name = document.getElementById("contact-name").value.trim();
     const email = document.getElementById("contact-email").value.trim();
@@ -324,7 +318,7 @@ function initContactForm() {
       form.reset();
       submitBtn.innerHTML = originalText;
       submitBtn.disabled = false;
-      
+
       showToast(`Thank you, ${name}! Your message was successfully sent.`);
     }, 1500);
   });
