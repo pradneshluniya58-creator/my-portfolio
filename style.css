@@ -366,6 +366,13 @@ body.dark-theme #header.scrolled {
     font-weight: 800;
     display: flex;
     align-items: center;
+    gap: 5px;
+}
+
+.site-logo {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
 }
 
 .logo span:first-child {
