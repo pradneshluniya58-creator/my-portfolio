@@ -1,198 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>portfolio-PradneshLuniya</title>
-  <meta name="description" content="Personal Portfolio of Pradnesh Santosh Luniya, Computer Engineering Student at AISSMS Pune. Details on projects, programming skills, and contact options.">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Portfolio | John Doe</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-theme">
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
 
-  <!-- Background Decorative Glowing Blobs -->
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="blob blob-3"></div>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-dot"></div>
 
-  <!-- Header / Navigation -->
-  <header>
-    <div class="nav-container">
-      <a href="index.html#home" class="logo">portfolio-PradneshLuniya</a>
-      <button class="mobile-menu-btn" aria-label="Toggle Navigation">☰</button>
-      <nav class="nav-links">
-        <a href="index.html#home" class="nav-link active">Home</a>
-        <a href="projects.html" class="nav-link">Projects</a>
-        <a href="skills.html" class="nav-link">Skills</a>
-        <a href="index.html#contact" class="nav-link">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <!-- Background Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero container">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <div class="hero-subtitle">2nd Year Student</div>
-        <h1 class="hero-title">Hi, I'm <br><span>Pradnesh Santosh Luniya</span></h1>
-        <p class="hero-description">
-          A second year Engineering student at AISSMS College of Engineering Pune, passionate about core computer systems, algorithms, databases, and modern web architectures.
-        </p>
-        <div class="hero-cta">
-          <a href="projects.html" class="btn btn-primary">Explore Projects</a>
-          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-        </div>
-      </div>
-      <div class="hero-image-container">
-        <div class="profile-glow-ring">
-          <div class="profile-photo">
-            <img src="avatar.svg" alt="Pradnesh Santosh Luniya Avatar Logo">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- Projects Section (Featured) -->
-  <section id="projects" class="container">
-    <div class="section-header">
-      <span class="section-tag">Portfolio Highlights</span>
-      <h2 class="section-title">Featured Projects</h2>
-    </div>
-    
-    <!-- Dynamically loaded grid container -->
-    <div class="projects-grid" id="projects-featured-container">
-      <!-- Projects cards will be injected here by main.js -->
-    </div>
-
-    <div class="more-btn-container">
-      <a href="projects.html" class="btn btn-secondary">View All Projects</a>
-    </div>
-  </section>
-
-  <!-- Skills Section (Featured) -->
-  <section id="skills" class="container">
-    <div class="section-header">
-      <span class="section-tag">Competencies</span>
-      <h2 class="section-title">Core Skills</h2>
-    </div>
-    
-    <!-- Dynamically loaded skills list (top 3) -->
-    <div class="skills-grid" id="skills-featured-container">
-      <!-- Skills cards will be injected here by main.js -->
-    </div>
-
-    <div class="more-btn-container">
-      <a href="skills.html" class="btn btn-secondary">View All Skills</a>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="container">
-    <div class="section-header">
-      <span class="section-tag">Get In Touch</span>
-      <h2 class="section-title">Contact</h2>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <h3>Let's Connect</h3>
-        <p>
-          If you have any opportunities, questions, or would just like to chat about programming, feel free to drop a message. 
-          I will try my best to get back to you as soon as possible!
-        </p>
-        <div class="contact-details">
-          <div class="contact-item">
-            <div class="contact-icon">📍</div>
-            <div>
-              <div class="contact-item-title">Location</div>
-              <div class="contact-item-value">Pune, Maharashtra, India</div>
+    <!-- Header Navigation -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="#hero" class="logo">
+                <span>J</span>ohn<span>.</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#testimonials" class="nav-link">Reviews</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" aria-label="Toggle Theme" class="icon-btn">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button id="mobile-menu-btn" aria-label="Open Menu" class="icon-btn mobile-only">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
             </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">📧</div>
-            <div>
-              <div class="contact-item-title">Email</div>
-              <div class="contact-item-value">pradneshluniya58@gmail.com</div>
-            </div>
-          </div>
         </div>
-      </div>
-      <div class="contact-form">
-        <form id="contact-portfolio-form" novalidate>
-          <div class="form-group-row">
-            <div class="form-group">
-              <label for="contact-name" class="form-label">Full Name *</label>
-              <input type="text" id="contact-name" class="form-control" placeholder="John Doe" required>
-            </div>
-            <div class="form-group">
-              <label for="contact-email" class="form-label">Email Address *</label>
-              <input type="email" id="contact-email" class="form-control" placeholder="john@example.com" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="contact-subject" class="form-label">Subject</label>
-            <input type="text" id="contact-subject" class="form-control" placeholder="Inquiry about projects">
-          </div>
-          <div class="form-group">
-            <label for="contact-message" class="form-label">Message *</label>
-            <textarea id="contact-message" class="form-control" placeholder="Your message details..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width: 100%; border: none;">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-container">
-      <div class="footer-text">
-        &copy; 2026 Pradnesh Santosh Luniya. All Rights Reserved.
-      </div>
-      <div class="footer-socials">
-        <a href="https://github.com/pradneshluniya58-creator" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <svg style="width:24px;height:24px" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.41 6,9.54 6.62,8.85C6.52,8.6 6.17,7.58 6.72,6.22C6.72,6.22 7.55,5.95 9.44,7.24C10.23,7.03 11.07,6.92 11.91,6.92C12.75,6.92 13.59,7.03 14.38,7.24C16.27,5.95 17.1,6.22 17.1,6.22C17.65,7.58 17.3,8.6 17.2,8.85C17.82,9.54 18.2,10.41 18.2,11.5C18.2,15.32 15.88,16.16 13.65,16.41C14,16.71 14.3,17.31 14.3,18.22C14.3,19.53 14.3,20.59 14.3,20.91C14.3,21.18 14.46,21.5 14.96,21.41C18.9,20.08 21.75,16.3 21.75,12A10,10 0 0,0 12,2Z"/>
-          </svg>
-        </a>
-        <a href="https://www.linkedin.com/in/pradnesh-luniya-233239384/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <svg style="width:24px;height:24px" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19M18.5,18.5V13.2A5.26,5.26 0 0,0 13.24,7.94C11.5,7.94 9.96,8.85 9.24,10.24V8.5H6.5V18.5H9.25V13.25C9.25,11.9 10.35,10.8 11.7,10.8A1.45,1.45 0 0,1 13.15,12.25V18.5H15.9V13.25C15.9,11.9 17,10.8 18.35,10.8A1.45,1.45 0 0,1 19.8,12.25V18.5H18.5M6.5,5.5A1.5,1.5 0 1,1 5,7A1.5,1.5 0 0,1 6.5,5.5Z"/>
-          </svg>
-        </a>
-      </div>
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav">
+        <button id="mobile-nav-close" class="icon-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <nav class="mobile-links">
+            <a href="#about" class="mobile-link">About</a>
+            <a href="#services" class="mobile-link">Services</a>
+            <a href="#experience" class="mobile-link">Experience</a>
+            <a href="#projects" class="mobile-link">Projects</a>
+            <a href="#testimonials" class="mobile-link">Reviews</a>
+            <a href="#contact" class="mobile-link">Contact</a>
+        </nav>
     </div>
-  </footer>
 
-  <!-- Project Details Modal Overlay -->
-  <div id="project-modal-overlay" class="modal-overlay">
-    <div class="modal-container">
-      <div class="modal-header">
-        <div class="modal-title-group">
-          <h4 class="modal-subtitle">Project Details</h4>
-          <h3 class="modal-title">Project Name</h3>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content scroll-reveal">
+                    <span class="hero-subtitle">WELCOME TO MY WORLD</span>
+                    <h1 class="hero-title">
+                        Hi, I'm <span class="highlight-text">John Doe</span><br>
+                        I'm a <span id="typing-element"></span><span class="typed-cursor">|</span>
+                    </h1>
+                    <p class="hero-description">
+                        Building high-performance, responsive web applications and designing immersive digital experiences with modern web technologies.
+                    </p>
+                    <div class="hero-actions-group">
+                        <a href="#projects" class="btn btn-primary">View My Work <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#contact" class="btn btn-outline">Let's Talk</a>
+                    </div>
+                </div>
+                <div class="hero-graphic scroll-reveal">
+                    <div class="glowing-shape-wrapper">
+                        <div class="glowing-shape shape-1"></div>
+                        <div class="glowing-shape shape-2"></div>
+                        <div class="graphic-card">
+                            <div class="card-header">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="card-body">
+                                <pre><code><span class="keyword">const</span> <span class="variable">developer</span> = {
+  <span class="property">name</span>: <span class="string">'John Doe'</span>,
+  <span class="property">role</span>: <span class="string">'Full Stack Engineer'</span>,
+  <span class="property">skills</span>: [<span class="string">'React'</span>, <span class="string">'Node.js'</span>, <span class="string">'Vanilla JS'</span>],
+  <span class="property">passions</span>: [<span class="string">'Aesthetics'</span>, <span class="string">'Clean Code'</span>],
+  <span class="property">location</span>: <span class="string">'San Francisco, CA'</span>
+};</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#about" class="scroll-down-indicator" aria-label="Scroll Down">
+                <span class="mouse">
+                    <span class="wheel"></span>
+                </span>
+            </a>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section section-padding">
+            <div class="section-container">
+                <div class="section-header scroll-reveal">
+                    <span class="subtitle">ABOUT ME</span>
+                    <h2 class="title">My Story</h2>
+                    <div class="title-underline"></div>
+                </div>
+                <div class="about-grid">
+                    <div class="about-info scroll-reveal">
+                        <h3>Who I Am</h3>
+                        <p>
+                            I am a passionate software engineer and designer dedicated to building beautiful, accessible, and user-centric digital products. With a strong eye for design and a solid engineering foundation, I bridge the gap between aesthetics and functionality.
+                        </p>
+                        <p>
+                            Over the past 5 years, I have collaborated with startups and agencies to create interfaces that not only look stunning but also perform flawlessly on all devices and platforms.
+                        </p>
+                        <div class="personal-details">
+                            <div class="detail-item">
+                                <i class="fa-solid fa-envelope"></i>
+                                <span>john.doe@example.com</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>San Francisco, CA</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                <span>B.S. in Computer Science</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary" download><i class="fa-solid fa-download"></i> Download Resume</a>
+                    </div>
+                    <div class="about-skills scroll-reveal">
+                        <h3>My Skillset</h3>
+                        <div class="skills-container">
+                            <div class="skill-card">
+                                <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
+                                <div class="skill-info">
+                                    <span class="skill-name">Frontend (HTML5, CSS3, JS)</span>
+                                    <div class="progress-track">
+                                        <div class="progress-bar" data-progress="95%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon"><i class="fa-brands fa-react"></i></div>
+                                <div class="skill-info">
+                                    <span class="skill-name">React & Next.js</span>
+                                    <div class="progress-track">
+                                        <div class="progress-bar" data-progress="90%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon"><i class="fa-brands fa-node-js"></i></div>
+                                <div class="skill-info">
+                                    <span class="skill-name">Backend (Node.js, Express, databases)</span>
+                                    <div class="progress-track">
+                                        <div class="progress-bar" data-progress="85%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-card">
+                                <div class="skill-icon"><i class="fa-solid fa-palette"></i></div>
+                                <div class="skill-info">
+                                    <span class="skill-name">UI/UX Design (Figma, Adobe)</span>
+                                    <div class="progress-track">
+                                        <div class="progress-bar" data-progress="80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section section-padding alt-bg">
+            <div class="section-container">
+                <div class="section-header scroll-reveal">
+                    <span class="subtitle">SERVICES</span>
+                    <h2 class="title">What I Do</h2>
+                    <div class="title-underline"></div>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card scroll-reveal">
+                        <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+                        <h3>Web Development</h3>
+                        <p>Creating clean, performant, and standard-compliant frontend layouts and web apps using cutting edge technologies.</p>
+                    </div>
+                    <div class="service-card scroll-reveal">
+                        <div class="service-icon"><i class="fa-solid fa-crop-simple"></i></div>
+                        <h3>UI/UX Design</h3>
+                        <p>Designing user interfaces that are intuitive, satisfying, and aesthetically stunning, ensuring high user retention.</p>
+                    </div>
+                    <div class="service-card scroll-reveal">
+                        <div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                        <h3>Responsive Design</h3>
+                        <p>Optimizing experiences for any device, from massive desktop displays down to various smartphones.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience-section section-padding">
+            <div class="section-container">
+                <div class="section-header scroll-reveal">
+                    <span class="subtitle">TIMELINE</span>
+                    <h2 class="title">Experience & Education</h2>
+                    <div class="title-underline"></div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item left scroll-reveal">
+                        <div class="timeline-badge"><i class="fa-solid fa-briefcase"></i></div>
+                        <div class="timeline-panel">
+                            <span class="timeline-date">2023 - Present</span>
+                            <h3>Senior Frontend Developer</h3>
+                            <h4>Pixel Studio Inc.</h4>
+                            <p>Leading the development of rich client portals, establishing performance targets, and coaching junior team members.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right scroll-reveal">
+                        <div class="timeline-badge"><i class="fa-solid fa-briefcase"></i></div>
+                        <div class="timeline-panel">
+                            <span class="timeline-date">2021 - 2023</span>
+                            <h3>Full Stack Engineer</h3>
+                            <h4>WebFlow Technologies</h4>
+                            <p>Built RESTful APIs and interactive Single Page Apps. Spearheaded migration to modern styling solutions.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left scroll-reveal">
+                        <div class="timeline-badge"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="timeline-panel">
+                            <span class="timeline-date">2017 - 2021</span>
+                            <h3>B.S. Computer Science</h3>
+                            <h4>State University</h4>
+                            <p>Specialized in Human-Computer Interaction and Software Engineering. Graduated with Honors.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section section-padding alt-bg">
+            <div class="section-container">
+                <div class="section-header scroll-reveal">
+                    <span class="subtitle">PORTFOLIO</span>
+                    <h2 class="title">Featured Projects</h2>
+                    <div class="title-underline"></div>
+                </div>
+                <!-- Filters -->
+                <div class="project-filters scroll-reveal">
+                    <button class="filter-btn active" data-filter="all">All Work</button>
+                    <button class="filter-btn" data-filter="frontend">Frontend</button>
+                    <button class="filter-btn" data-filter="backend">Backend</button>
+                    <button class="filter-btn" data-filter="uiux">UI/UX</button>
+                </div>
+                <!-- Grid -->
+                <div class="projects-grid">
+                    <div class="project-card scroll-reveal" data-category="frontend">
+                        <div class="project-img-wrapper">
+                            <div class="project-placeholder-img coding-bg"></div>
+                            <div class="project-overlay">
+                                <div class="project-overlay-links">
+                                    <a href="#" class="project-link" aria-label="Github"><i class="fa-brands fa-github"></i></a>
+                                    <a href="#" class="project-link" aria-label="Live Demo"><i class="fa-solid fa-up-right-from-square"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Frontend</span>
+                            <h3>E-Commerce Dashboard</h3>
+                            <p>A beautiful dynamic dashboard tracking sales and platform performance metrics.</p>
+                        </div>
+                    </div>
+                    <div class="project-card scroll-reveal" data-category="backend">
+                        <div class="project-img-wrapper">
+                            <div class="project-placeholder-img db-bg"></div>
+                            <div class="project-overlay">
+                                <div class="project-overlay-links">
+                                    <a href="#" class="project-link" aria-label="Github"><i class="fa-brands fa-github"></i></a>
+                                    <a href="#" class="project-link" aria-label="Live Demo"><i class="fa-solid fa-up-right-from-square"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Backend</span>
+                            <h3>GraphQL Gateway API</h3>
+                            <p>Scalable caching proxy connecting third party platforms with millisecond latencies.</p>
+                        </div>
+                    </div>
+                    <div class="project-card scroll-reveal" data-category="uiux">
+                        <div class="project-img-wrapper">
+                            <div class="project-placeholder-img design-bg"></div>
+                            <div class="project-overlay">
+                                <div class="project-overlay-links">
+                                    <a href="#" class="project-link" aria-label="Dribbble"><i class="fa-brands fa-dribbble"></i></a>
+                                    <a href="#" class="project-link" aria-label="Live Demo"><i class="fa-solid fa-up-right-from-square"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">UI/UX</span>
+                            <h3>FinTech Mobile App</h3>
+                            <p>Interactive prototype emphasizing accessibility and ease of use for money transfer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials-section section-padding">
+            <div class="section-container">
+                <div class="section-header scroll-reveal">
+                    <span class="subtitle">REVIEWS</span>
+                    <h2 class="title">Client Testimonials</h2>
+                    <div class="title-underline"></div>
+                </div>
+                <div class="testimonials-wrapper scroll-reveal">
+                    <div class="testimonials-carousel">
+                        <div class="testimonial-slide active">
+                            <div class="client-avatar"><i class="fa-solid fa-user-tie"></i></div>
+                            <p class="testimonial-text">"John is an outstanding developer. He has an incredible sense for aesthetics combined with deep technical skills. Working with him was a breeze!"</p>
+                            <h4 class="client-name">Sarah Jenkins</h4>
+                            <span class="client-title">Product Director, Innovate Ltd.</span>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="client-avatar"><i class="fa-solid fa-user"></i></div>
+                            <p class="testimonial-text">"Our site's loading time went down by 60% after John restructured the application. Highly recommend his performance optimization work!"</p>
+                            <h4 class="client-name">David Miller</h4>
+                            <span class="client-title">CTO, SparkCorp</span>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button id="prev-testimonial" class="carousel-control" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button id="next-testimonial" class="carousel-control" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section section-padding alt-bg">
+            <div class="section-container">
+                <div class="section-header scroll-reveal">
+                    <span class="subtitle">GET IN TOUCH</span>
+                    <h2 class="title">Let's Create Together</h2>
+                    <div class="title-underline"></div>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-card scroll-reveal">
+                        <h3>Contact Info</h3>
+                        <div class="contact-details">
+                            <div class="contact-detail-item">
+                                <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
+                                <div class="c-info">
+                                    <span>Email</span>
+                                    <strong>john.doe@example.com</strong>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div class="c-info">
+                                    <span>Location</span>
+                                    <strong>San Francisco, CA</strong>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div class="c-icon"><i class="fa-solid fa-comments"></i></div>
+                                <div class="c-info">
+                                    <span>Socials</span>
+                                    <div class="social-links-row">
+                                        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form-wrapper scroll-reveal">
+                        <form id="contact-form" autocomplete="off" novalidate>
+                            <div class="form-group-row">
+                                <div class="input-container">
+                                    <input type="text" id="form-name" required placeholder=" ">
+                                    <label for="form-name">Your Name</label>
+                                    <span class="error-msg">Name is required</span>
+                                </div>
+                                <div class="input-container">
+                                    <input type="email" id="form-email" required placeholder=" ">
+                                    <label for="form-email">Your Email</label>
+                                    <span class="error-msg">Valid email is required</span>
+                                </div>
+                            </div>
+                            <div class="input-container">
+                                <input type="text" id="form-subject" required placeholder=" ">
+                                <label for="form-subject">Subject</label>
+                                <span class="error-msg">Subject is required</span>
+                            </div>
+                            <div class="input-container">
+                                <textarea id="form-message" required placeholder=" " rows="5"></textarea>
+                                <label for="form-message">Your Message</label>
+                                <span class="error-msg">Message cannot be empty</span>
+                            </div>
+                            <button type="submit" class="btn btn-primary full-width">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+                        </form>
+                        <div id="form-success-card" class="success-card hidden">
+                            <div class="success-icon"><i class="fa-regular fa-circle-check"></i></div>
+                            <h3>Thank You!</h3>
+                            <p>Your message has been successfully sent. I will get back to you shortly.</p>
+                            <button id="reset-form-btn" class="btn btn-outline">Send Another Message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 John Doe. All rights reserved.</p>
+            <p>Made with <i class="fa-solid fa-heart" style="color: var(--accent-primary);"></i> using Vanilla HTML, CSS & JS</p>
         </div>
-        <button class="modal-close-btn" aria-label="Close Modal">✕</button>
-      </div>
-      <div class="modal-body">
-        <p class="modal-desc">Detailed project description goes here.</p>
-        <h4 class="modal-features-title">Features & Contributions</h4>
-        <ul class="modal-features-list">
-          <!-- Features list items will be injected here dynamically by main.js -->
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <a href="#" class="btn btn-secondary github-repo-btn" target="_blank" rel="noopener noreferrer">
-          <svg style="width:16px;height:16px;margin-right:8px;vertical-align:text-bottom" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.41 6,9.54 6.62,8.85C6.52,8.6 6.17,7.58 6.72,6.22C6.72,6.22 7.55,5.95 9.44,7.24C10.23,7.03 11.07,6.92 11.91,6.92C12.75,6.92 13.59,7.03 14.38,7.24C16.27,5.95 17.1,6.22 17.1,6.22C17.65,7.58 17.3,8.6 17.2,8.85C17.82,9.54 18.2,10.41 18.2,11.5C18.2,15.32 15.88,16.16 13.65,16.41C14,16.71 14.3,17.31 14.3,18.22C14.3,19.53 14.3,20.59 14.3,20.91C14.3,21.18 14.46,21.5 14.96,21.41C18.9,20.08 21.75,16.3 21.75,12A10,10 0 0,0 12,2Z"/>
-          </svg>GitHub Repository
-        </a>
-        <a href="#" class="btn btn-primary live-demo-btn" target="_blank" rel="noopener noreferrer">Live Demo</a>
-      </div>
-    </div>
-  </div>
+    </footer>
 
-  <script src="main.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
 </body>
 </html>
